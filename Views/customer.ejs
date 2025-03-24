@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asiakkaat</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/customers">Asiakkaat ja käyttäjät</a></li>
+        <li><a href="/tickets">Tukipyynnöt</a></li>
+        <li><a href="/feedback">Palaute</a></li>
+        <li><a href="/logout">Kirjaudu ulos</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h1>Asiakkaat</h1>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Nimi</th>
+        </tr>
+        <% customers.forEach(customer => { %>
+        <tr>
+          <td><%= customer.id %></td>
+          <td><%= customer.name %></td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+
+    <div class="container">
+      <h1>Käyttäjät</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nimi</th>
+            <th>Sähköposti</th>
+            <th>Rooli</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(user => { %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.fullname %></td>
+            <td><%= user.email %></td>
+            <td><%= user.admin == 1 ? "admin" : "user" %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

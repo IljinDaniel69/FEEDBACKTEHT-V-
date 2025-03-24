@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palaute</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/customers">Asiakkaat ja käyttäjät</a></li>
+        <li><a href="/tickets">Tukipyynnöt</a></li>
+        <li><a href="/feedback">Palaute</a></li>
+        <li><a href="/logout">Kirjaudu ulos</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h1>Palaute</h1>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Käyttäjä</th>
+          <th>Palaute</th>
+          <th>Käsitelty</th>
+        </tr>
+        <% feedback.forEach(item => { %>
+        <tr>
+          <td><%= item.id %></td>
+          <td><%= item.from_user ? item.fullname : item.guest_name %></td>
+          <td><%= item.feedback %></td>
+          <td><%= item.handled ? "Kyllä" : "Ei" %></td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+  </body>
+</html>
